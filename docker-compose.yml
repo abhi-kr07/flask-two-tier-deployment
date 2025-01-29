@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - sample
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: abhi
+  
+
+
+
+  flask:
+    image: abhishekk4/two-tier-flask-app:v1
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    networks:
+      - sample
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: abhi
+
+    depends_on:
+      - mysql
+    volumes:
+      # - ./message.sql:/docker-entrypoint-initdb.d/message.sql       # will run this just after the container will be made
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+
+networks:
+  sample:
