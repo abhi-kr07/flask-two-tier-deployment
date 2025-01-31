@@ -12,4 +12,5 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: E:\kubernetes\Two-tier-application\flask-two-tier-deployment\
+  storageClassName: standard
   
