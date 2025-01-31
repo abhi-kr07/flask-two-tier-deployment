@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: flask-service
+  namespace: abhishek
+spec:
+  selector:
+    app: flask-app
+  ports:
+    - port: 80
+      targetPort: 5000
+      protocol: TCP
+      nodePort: 31000
+  type: NodePort
