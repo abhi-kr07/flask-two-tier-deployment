@@ -20,7 +20,7 @@ spec:
           image: abhishekk4/two-tier-flask-app:v1
           env:
             - name: MYSQL_HOST
-              value: "10.104.122.138"
+              value: "10.104.122.138"    # make sure to change this ip with mysql ip
             - name: MYSQL_USER
               value: "root"
             - name: MYSQL_PASSWORD
