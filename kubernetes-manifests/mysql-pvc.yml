@@ -9,4 +9,4 @@ spec:
   resources:
     requests:
       storage: 256Mi
-  # volumeName: mysql-pv
+ storageClassName: standard
